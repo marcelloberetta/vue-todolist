@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <link rel="icon" href="unnamed.jpg" type="image"> <!-- FAVICON -->
+   <link rel="stylesheet" href="style.css">  <!-- EXTERNAL CSS -->
+   <script src="https://cdn.jsdelivr.net/npm/vue"></script> <!-- VUE JS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" 
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" /> <!-- FONT AWESOME -->
+
+</head>
+
+<body>
+
+    
+   <div id="root">
+
+      <div class="container">
+
+            
+            <div class="logo">
+
+                <img src="https://www.boolean.careers/images/misc/logo.png" alt="Logo Boolean">
+
+            </div>
+            
+
+            
+            <div class="new-todo">
+
+                <input class="text-input" placeholder="Inserisci qui un nuovo reminder" type="text"
+                    v-model="pushText" v-on:keyup.enter="pushTextOnArray">
+
+                <button class="btn"
+                    v-on:click="pushTextOnArray()">Aggiungi</button>
+
+            </div>
+            
+
+            
+            <div class="todos-container">
+
+                
+                <ul class="todos-list"
+                    v-if="todos.length">
+
+                    <li v-for="(todo, index) in todos">
+                        {{ todo }}
+                        <span class="delete" v-on:click="deleteThisFromArray(index)">
+                            <i class="fa fa-times" aria-hidden="true"></i>
+                        </span>
+
+                    </li>
+
+                </ul>
+                
+
+                
+                <div v-else>
+                    <span>Inserisci un nuovo todo</span>
+                </div>
+                
+            </div>
+            
+
+        </div>
+    </div>
+    
+
+    
+    
+    <script src="script.js"></script> <!-- EXTERNAL JAVASCRIPT -->
+
+</body>
+
+</html>
